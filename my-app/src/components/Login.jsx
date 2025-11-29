@@ -1,15 +1,39 @@
+const employees = [
+  {
+    name: 'Sarah Conors',
+    username: 'sarah',
+    designation: 'employee',
+    password: 'employee',
+  },
+  {
+    name: 'Amy Adams',
+    username: 'adams',
+    designation: 'employee',
+    password: 'employee2',
+  },
+  {
+    name: 'Francis Underwood',
+    username: 'frank',
+    designation: 'admin',
+    password: 'admin',
+  },
+];
+
 export default function LoginPage() {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
     const payload = {
-      email: data.get('email'),
+      // email: data.get('email'),
+      username: data.get('username'),
       password: data.get('password'),
-      remember: data.get('remember') === 'on',
+      // remember: data.get('remember') === 'on',
     };
-    // eslint-disable-next-line no-console
-    console.log('Login submit', payload);
+
+    payload.username === 'frank' && payload.password === 'admin'
+      ? alert(`Password and Username match`)
+      : alert('Wrong password and email');
   };
 
   return (
@@ -19,10 +43,10 @@ export default function LoginPage() {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Login</h2>
           <form className="flex flex-col" onSubmit={handleSubmit}>
             <input
-              type="email"
-              name="email"
+              type="text"
+              name="username"
               className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-              placeholder="Email address"
+              placeholder="Enter Username"
               required
             />
             <input
