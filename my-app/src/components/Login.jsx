@@ -1,25 +1,27 @@
-const employees = [
-  {
-    name: 'Sarah Conors',
-    username: 'sarah',
-    designation: 'employee',
-    password: 'employee',
-  },
-  {
-    name: 'Amy Adams',
-    username: 'adams',
-    designation: 'employee',
-    password: 'employee2',
-  },
-  {
-    name: 'Francis Underwood',
-    username: 'frank',
-    designation: 'admin',
-    password: 'admin',
-  },
-];
+import AdminDashboard from './Admin';
 
 export default function LoginPage() {
+  const employees = [
+    {
+      name: 'Sarah Conors',
+      username: 'sarah',
+      designation: 'employee',
+      password: 'employee',
+    },
+    {
+      name: 'Amy Adams',
+      username: 'adams',
+      designation: 'employee',
+      password: 'employee2',
+    },
+    {
+      name: 'Francis Underwood',
+      username: 'frank',
+      designation: 'admin',
+      password: 'admin',
+    },
+  ];
+
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -32,7 +34,7 @@ export default function LoginPage() {
     };
 
     payload.username === 'frank' && payload.password === 'admin'
-      ? alert(`Password and Username match`)
+      ? alert('Password and email is correct')
       : alert('Wrong password and email');
   };
 
